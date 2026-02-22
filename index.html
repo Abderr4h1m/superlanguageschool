@@ -1013,6 +1013,84 @@
       </section>
 
       <!--Why Choose One End-->
+       <section class="contact-page">
+  <div class="container">
+    <div class="row">
+
+      <!-- LEFT SIDE -->
+      <div class="col-xl-4 col-lg-4">
+        <div class="contact-page__left">
+          <div class="section-title">
+            <span class="section-title__tagline">
+              Remplissez le formulaire pour que nous puissions vous contacter
+            </span>
+            <h2 class="section-title__title">
+              Commencez votre parcours <br>
+              
+            </h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE -->
+      <div class="col-xl-8 col-lg-8">
+        <div class="contact-page__right">
+
+          <form id="contactForm" class="comment-one__form">
+
+            <div class="row">
+              <div class="col-xl-6 col-lg-6">
+                <div class="comment-form__input-box">
+                  <input type="text" placeholder="Nom complet" name="nom" required>
+                </div>
+              </div>
+
+              <div class="col-xl-6 col-lg-6">
+                <div class="comment-form__input-box">
+                  <input type="text" placeholder="Ville" name="ville" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xl-6 col-lg-6">
+                <div class="comment-form__input-box">
+                  <input type="text" placeholder="Niveau scolaire" name="niveau" required>
+                </div>
+              </div>
+
+              <div class="col-xl-6 col-lg-6">
+                <div class="comment-form__input-box">
+                  <input type="text" placeholder="Téléphone" name="telephone" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xl-12 col-lg-12">
+                <button type="submit" class="thm-btn comment-form__btn">
+                  Commencer maintenant
+                </button>
+              </div>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- Confirmation Popup -->
+<div id="confirmationPopup" class="confirmation-popup">
+  <div class="popup-content">
+    <p>Thank you! Your info has been submitted.</p>
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+  </div>
+</div>
 
       <!--Blog One Start-->
       <section class="blog-one">
@@ -1334,32 +1412,57 @@
 
     <script src="http://maps.google.com/maps/api/js?key=AIzaSyATY4Rxc8jNvDpsK8ZetC7JyN4PFVYGCGM"></script>
     <script>
-    function applyCode() {
-        const form = document.getElementById('consultationForm');
-        const formData = new FormData(form);
+     document.getElementById("contactForm").addEventListener("submit", function(e) {
+        e.preventDefault();  // Prevents default form submission
 
-        // Replace with your Google Apps Script Web App URL
-        const scriptURL = 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL';
+        // Simulate form submission
+        setTimeout(function() {
+            // Show the popup
+            document.getElementById("confirmationPopup").style.display = "block";
+            
+            // Hide the popup after 3 seconds
+            setTimeout(function() {
+                document.getElementById("confirmationPopup").style.display = "none";
+            }, 3000);
+        }, 1000);  // Simulate some delay before showing the popup
+    });
+
+    const scriptURL = "https://script.google.com/macros/s/AKfycbz09LVt_wuMTGHRg57DaI-R_1iYvoWW21iV0QxjQlTm9QVNmtOFOgY6huNiFgk_L7C-/exec";
+
+    document.getElementById("contactForm").addEventListener("submit", e => {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData.entries());
 
         fetch(scriptURL, {
-            method: 'POST',
-            body: formData
+            method: "POST",
+            body: JSON.stringify(data),
         })
+        .then(res => res.json())
         .then(response => {
-            if (response.ok) {
-                // Show the success message
-                document.getElementById('successMessage').style.display = 'block';
-                // Optionally reset the form
-                form.reset();
-            } else {
-                alert('Error submitting the form');
-            }
+            // Show the confirmation popup with French text
+            document.getElementById("confirmationPopup").style.display = "block";
+            document.getElementById("confirmationPopup").innerHTML = `
+                <div class="popup-content">
+                    <p>Merci ! Vos informations ont été soumises avec succès.</p>
+                    <div class="progress-bar">
+                        <div id="progress" class="progress"></div>
+                    </div>
+                </div>
+            `;
+
+            // Hide the popup after 3 seconds
+            setTimeout(function() {
+                document.getElementById("confirmationPopup").style.display = "none";
+            }, 3000);
+
+            e.target.reset(); // Reset the form after submission
         })
         .catch(error => {
-            alert('Error submitting the form');
-            console.error(error);
+            alert("❌ Il y a un problème, veuillez réessayer.");
         });
-    }
+    });
 </script>
 
     <!-- template js -->
