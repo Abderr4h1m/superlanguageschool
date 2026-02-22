@@ -240,77 +240,75 @@
     <!--End Contact Details One-->
 
     <!--Contact Page Start-->
-    <section class="contact-page">
-    <div class="container">
-        <div class="row">
+   <section class="contact-page">
+  <div class="container">
+    <div class="row">
 
-            <!-- LEFT SIDE -->
-            <div class="col-xl-4 col-lg-4">
-                <div class="contact-page__left">
-                    <div class="section-title">
-                        <span class="section-title__tagline">Envoyez-nous un message</span>
-                        <h2 class="section-title__title">
-                            Nous sommes toujours <br>
-                            à votre écoute <br>
-                            pour vous accompagner
-                        </h2>
-                    </div>
+      <!-- LEFT SIDE -->
+      <div class="col-xl-4 col-lg-4">
+        <div class="contact-page__left">
+          <div class="section-title">
+            <span class="section-title__tagline">
+              3mer formulaire bach ntwaslo m3ak
+            </span>
+            <h2 class="section-title__title">
+              Bda f tri9 dyalek <br>
+              f a9rab we9t <br>
+              w khalina n3awnok twssel l hadaf dyalek
+            </h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE -->
+      <div class="col-xl-8 col-lg-8">
+        <div class="contact-page__right">
+
+          <form id="contactForm" class="comment-one__form">
+
+            <div class="row">
+              <div class="col-xl-6 col-lg-6">
+                <div class="comment-form__input-box">
+                  <input type="text" placeholder="Nom complet" name="nom" required>
                 </div>
+              </div>
+
+              <div class="col-xl-6 col-lg-6">
+                <div class="comment-form__input-box">
+                  <input type="text" placeholder="Ville" name="ville" required>
+                </div>
+              </div>
             </div>
 
-            <!-- RIGHT SIDE -->
-            <div class="col-xl-8 col-lg-8">
-                <div class="contact-page__right">
-                    <form action="assets/inc/sendemail.php" 
-                          class="comment-one__form contact-form-validated" 
-                          novalidate="novalidate">
-
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6">
-                                <div class="comment-form__input-box">
-                                    <input type="text" placeholder="Votre nom" name="name">
-                                </div>
-                            </div>
-
-                            <div class="col-xl-6 col-lg-6">
-                                <div class="comment-form__input-box">
-                                    <input type="email" placeholder="Adresse email" name="email">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6">
-                                <div class="comment-form__input-box">
-                                    <input type="text" placeholder="Numéro de téléphone" name="phone">
-                                </div>
-                            </div>
-
-                            <div class="col-xl-6 col-lg-6">
-                                <div class="comment-form__input-box">
-                                    <input type="text" placeholder="Ville" name="city">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-xl-12 col-lg-12">
-                                <div class="comment-form__input-box">
-                                    <textarea name="message" placeholder="Écrivez votre message"></textarea>
-                                </div>
-
-                                <button type="submit" class="thm-btn comment-form__btn">
-                                    Envoyer le message
-                                </button>
-                            </div>
-                        </div>
-
-                    </form>
+            <div class="row">
+              <div class="col-xl-6 col-lg-6">
+                <div class="comment-form__input-box">
+                  <input type="text" placeholder="Niveau scolaire" name="niveau" required>
                 </div>
+              </div>
+
+              <div class="col-xl-6 col-lg-6">
+                <div class="comment-form__input-box">
+                  <input type="text" placeholder="Téléphone" name="telephone" required>
+                </div>
+              </div>
             </div>
+
+            <div class="row">
+              <div class="col-xl-12 col-lg-12">
+                <button type="submit" class="thm-btn comment-form__btn">
+                  Je commence maintenant
+                </button>
+              </div>
+            </div>
+
+          </form>
 
         </div>
+      </div>
+
     </div>
+  </div>
 </section>
     <!--Contact Page End-->
 
@@ -540,7 +538,29 @@
 
 
     <script src="http://maps.google.com/maps/api/js?key=AIzaSyATY4Rxc8jNvDpsK8ZetC7JyN4PFVYGCGM"></script>
+<script>
+const scriptURL = "HNA_DIR_WEB_APP_URL_DYALK";
 
+document.getElementById("contactForm").addEventListener("submit", e => {
+  e.preventDefault();
+
+  const formData = new FormData(e.target);
+  const data = Object.fromEntries(formData.entries());
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: JSON.stringify(data),
+  })
+  .then(res => res.json())
+  .then(response => {
+    alert("✅ Ttsiftat talabak بنجاح! Ghadi ntwaslo m3ak قريباً.");
+    e.target.reset();
+  })
+  .catch(error => {
+    alert("❌ Kayn chi moshkil, 3awed jarrab.");
+  });
+});
+</script>
     <!-- template js -->
     <script src="assets/js/zilom.js"></script>
 

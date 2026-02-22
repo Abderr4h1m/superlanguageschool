@@ -6016,6 +6016,7 @@ ul {
   height: 60px;
   width: 100%;
   border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.24);
   background: #f1f2f6;
   padding: 0 30px;
   margin-bottom: 30px;
@@ -6543,6 +6544,7 @@ ul {
   display: block;
   background: #ffffff;
   padding: 0px 0px 120px;
+  margin: 100px 0 0 0;
 }
 
 .contact-page__left {
@@ -7374,4 +7376,49 @@ ul {
 
 #scrollbar1 .disable {
   display: none;
+}
+
+/* Style for the popup */
+.confirmation-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #28a745;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 18px;
+  display: none;
+  z-index: 9999;
+}
+
+.popup-content {
+  display: inline-block;
+  padding: 10px;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #fff;
+  height: 5px;
+  margin-top: 10px;
+  border-radius: 3px;
+}
+
+.progress {
+  width: 0;
+  height: 100%;
+  background-color: #28a745;
+  border-radius: 3px;
+  animation: progress-animation 2s ease-out forwards;
+}
+
+@keyframes progress-animation {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }
