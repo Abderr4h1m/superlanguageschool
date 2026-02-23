@@ -6028,6 +6028,26 @@ ul {
   text-transform: capitalize;
 }
 
+.comment-form__input-box select {
+  height: 60px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+  background: #f1f2f6;
+  padding: 0 30px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  outline: none;
+  font-size: 16px;
+  color: var(--thm-gray);
+  font-weight: 400;
+  text-transform: capitalize;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}
+
 .comment-form__input-box textarea {
   font-size: 16px;
   color: var(--thm-gray);

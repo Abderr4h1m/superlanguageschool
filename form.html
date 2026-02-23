@@ -215,11 +215,10 @@
         <div class="contact-page__left">
           <div class="section-title">
             <span class="section-title__tagline">
-              Remplissez le formulaire pour que nous puissions vous contacter
+              Renseignez vos afin de bénéficier d’une 
             </span>
             <h2 class="section-title__title">
-              Commencez votre parcours <br>
-              
+              consultation gratuite !        
             </h2>
           </div>
         </div>
@@ -248,7 +247,7 @@
             <div class="row">
               <div class="col-xl-6 col-lg-6">
                 <div class="comment-form__input-box">
-                  <input type="text" placeholder="Niveau scolaire" name="niveau" required>
+                  <input type="text" placeholder="Niveau scolaire" name="niveau_scolaire" required>
                 </div>
               </div>
 
@@ -258,6 +257,35 @@
                 </div>
               </div>
             </div>
+
+            <div class="row">
+
+  <!-- Niveau -->
+  <div class="col-xl-6 col-lg-6">
+    <div class="comment-form__input-box">
+      <select name="niveau_allemand" required>
+        <option value="A1" selected>A1</option>
+        <option value="A2">A2</option>
+        <option value="B1">B1</option>
+        <option value="B2">B2</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Horaire préféré -->
+  <div class="col-xl-6 col-lg-6">
+    <div class="comment-form__input-box">
+      <select name="horaire" required>
+        <option value="" disabled selected>Horaire préféré</option>
+        <option value="10H00">à partir de 10H00</option>
+        <option value="16H00">à partir de 16H00</option>
+        <option value="18H00">à partir de 18H00</option>
+        <option value="19H00">à partir de 19H00</option>
+      </select>
+    </div>
+  </div>
+
+</div>
 
             <div class="row">
               <div class="col-xl-12 col-lg-12">
@@ -278,7 +306,7 @@
 <!-- Confirmation Popup -->
 <div id="confirmationPopup" class="confirmation-popup">
   <div class="popup-content">
-    <p>Thank you! Your info has been submitted.</p>
+    <p>Merci ! Vos informations ont été soumises avec succès.</p>
     <div class="progress-bar">
       <div id="progress" class="progress"></div>
     </div>
